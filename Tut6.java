@@ -6,9 +6,7 @@ public class Tut6 {
     public static void main(String[] args) {
         Tut6 tut = new Tut6();
         int x = -1;
-        do {
-            x = tut.getNumber();
-        } while (x == -1);
+        x = tut.getNumber();
         System.out.print(x + " inputted");
     }
 
