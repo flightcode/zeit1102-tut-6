@@ -7,19 +7,29 @@ public class Tut6 {
         Tut6 tut = new Tut6();
         int x = -1;
         do {
-            x = tut.getNumber();
+            try {
+                x = tut.getNumber();
+            } catch (Exception e) {
+                System.out.println(e);
+                System.out.println();
+            }
         } while (x == -1);
-        System.out.print(x + " inputted");
+        System.out.println(x + " inputted");
     }
 
-    public int getNumber() {
+    public int getNumber() throws Exception {
+        System.out.println("Input positive integer: ");
+        int x = -1;
         try {
-            System.out.println("Input integer: ");
-            int x = Integer.parseInt(input.nextLine());
-            return x;
-        } catch (NumberFormatException nfe) {
-            System.out.println("Invalid input");
+            x = Integer.parseInt(input.nextLine());
+        } catch (Exception e) {
+            System.out.println(e);
+            System.out.println();
             return -1;
         }
+        if (x < 0) {
+            throw new NegativeException("String less than 0");
+        }
+        return x;
     }
 }
